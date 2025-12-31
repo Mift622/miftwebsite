@@ -1,0 +1,228 @@
+<head>
+<meta charset="UTF-8">
+<title>💗 Miftahul Iman 💗</title>
+
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet"
+ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+/* =====================
+   GLOBAL
+===================== */
+body {
+    margin: 0;
+    background: #ffcce7;
+    font-family: "Times New Roman", Times, serif;
+}
+
+/* =====================
+   GLOW & ANIMATION
+===================== */
+.glow-box {
+    box-shadow: 0 0 12px rgba(255, 170, 200, 0.5);
+    transition: 0.3s ease;
+    opacity: 0;
+}
+
+.glow-box:hover {
+    box-shadow: 0 0 22px rgba(255, 120, 180, 0.85);
+    transform: translateY(-5px);
+}
+
+.shake:hover {
+    animation: shakeAnim 0.4s ease;
+}
+
+@keyframes shakeAnim {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-3px); }
+    50% { transform: translateX(3px); }
+    75% { transform: translateX(-3px); }
+    100% { transform: translateX(0); }
+}
+
+.gradient-border {
+    border: 3px solid transparent;
+    background-image:
+        linear-gradient(#fff, #fff),
+        linear-gradient(45deg, #ffb6d5, #b2e5ff);
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* =====================
+   NAVBAR
+===================== */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 17.5px 80px;
+    background: #f556ca;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 93%;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    z-index: 1000;
+}
+
+.navbar .logo {
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.navbar .nav-links a {
+    margin-left: 15px;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.navbar .nav-links a:hover {
+    text-shadow: 0 0 5px #fff,
+                 0 0 10px #ff85d0,
+                 0 0 20px #ff14b7;
+}
+
+/* =====================
+   HEADER
+===================== */
+.page-header {
+    padding: 70px 0 100px;
+    text-align: center;
+    background-color: #f4a5de;
+}
+
+.page-header h1 {
+    color: white;
+    font-size: 40px;
+    margin: 0;
+}
+
+.page-header p {
+    color: white;
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+/* =====================
+   INFO BOX SECTION
+===================== */
+.info-section {
+    background: #ffdcf4;
+    padding: 60px 0 40px;
+}
+
+.info-row {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    margin: auto;
+    gap: 2%;
+}
+
+.info-box {
+    flex: 1;
+    padding: 50px;
+    border-radius: 15px;
+    background: white;
+    text-align: left;
+}
+
+.info-box h3 {
+    color: #003d66;
+    margin-bottom: 15px;
+}
+
+/* =====================
+   CONTACT & MESSAGE
+===================== */
+.contact-message-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+    width: 80%;
+    margin: 60px auto;
+}
+
+.contact-box,
+.message-box {
+    flex: 1;
+    min-width: 280px;
+    padding: 45px;
+    background: white;
+    border-radius: 18px;
+}
+
+.contact-box h3,
+.message-box h3 {
+    color: #003d66;
+}
+
+/* SOCIAL */
+.social-grid {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 25px;
+}
+
+.social-icon {
+    text-align: center;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.social-icon i {
+    font-size: 50px;
+}
+
+.instagram { color: #E1306C; }
+.tiktok { color: #000; }
+.whatsapp { color: #25D366; }
+
+/* FORM */
+.message-box label {
+    font-weight: bold;
+    display: block;
+    margin-top: 10px;
+}
+
+.message-box input,
+.message-box textarea {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #003d66;
+    margin-bottom: 15px;
+}
+
+.message-box button {
+    padding: 14px 28px;
+    background: #003d66;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* =====================
+   RESPONSIVE
+===================== */
+@media (max-width: 768px) {
+    .info-row,
+    .contact-message-wrapper {
+        flex-direction: column;
+    }
+}
