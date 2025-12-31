@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>💗 Miftahul Iman 💗 - Education & Journey</title>
+<style>
+    body {
+        margin:0;
+        font-family:"Times New Roman", Times, serif;
+        background:#ffcce7;
+    }
+
+    /* NAVBAR */
+.navbar {
+    display:flex; justify-content:space-between; align-items:center;
+    padding:20px 80px; background:#f556ca; color:white;
+    position:fixed; top:0; left:0; width:93%;
+    box-shadow:0 2px 5px rgba(0,0,0,0.1);
+    z-index:1000;
+}
+.navbar a {
+    color:white; margin-left:15px; text-decoration:none;
+    font-weight:bold;
+    transition: 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover & focus glow effect */
+.navbar a:hover,
+.navbar a:focus {
+    color:#fff;
+    text-shadow: 0 0 5px #fff, 0 0 10px #ff85d0, 0 0 20px #ff14b7;
+}
+
+    /* Header */
+    .page-header {
+        padding:150px 0 110px 0; text-align:center; background:#f4a5de; color:white;
+    }
+    .page-header h1 { font-size:40px; margin:0; }
+    .page-header p { font-size:20px; margin-top:10px; }
+
+    /* Section */
+    .edu-section {
+        display:flex; justify-content:center; align-items:center;
+        gap:40px; width:85%; margin:0 auto 60px auto;
+    }
+
+    /* Slideshow */
+    .slideshow {
+        position:relative;
+        width:300px;
+        height:200px;
+        overflow:hidden;
+        border-radius:15px;
+        box-shadow:0 0 15px rgba(255,150,200,0.3);
+    }
+    .slide-img {
+        width:100%;
+        height:100%;
+        object-fit:cover;
+        display:none;
+    }
+    .slide-img.active { display:block; }
+    .slide-btn {
+        position:absolute; top:50%; transform:translateY(-50%);
+        background:#ff80ab; border:none; color:white; border-radius:50%;
+        padding:8px 12px; cursor:pointer;
+    }
+    .slide-btn.left { left:5px; }
+    .slide-btn.right { right:5px; }
+
+    /* Info Box */
+    .info-box {
+        flex:1;
+        background:#fff0f8;
+        padding:20px;
+        border-radius:20px;
+        box-shadow:0 0 15px rgba(255,150,200,0.3);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .info-box h3 { margin-top:0; color:#d81b60; }
+    .info-box ul { padding-left:20px; }
+
+    .info-box:hover {
+        transform: translateY(-5px);
+        box-shadow:0 0 25px rgba(255,128,180,0.5);
+    }
+
+    /* Journey Box */
+    .journey-box {
+        width:90%;
+        max-width:1000px;
+        background:#fff0f8;
+        margin:0 auto 60px auto;
+        padding:30px;
+        border-radius:25px;
+        box-shadow:0 0 20px rgba(255,150,200,0.3);
+        text-align:center;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .journey-box h2 { color:#d81b60; margin-bottom:25px; }
+
+    .journey-box:hover {
+        transform: translateY(-5px);
+        box-shadow:0 0 25px rgba(255,128,180,0.5);
+    }
+
+    .journey-grid {
+        display:grid;
+        grid-template-columns:repeat(3, 1fr);
+        gap:20px;
+    }
+    .journey-grid img {
+        width:100%;
+        height:150px;
+        object-fit:cover;
+        border-radius:15px;
+        opacity:0;
+        transform: translateY(20px);
+        transition: 0.5s ease;
+    }
+    .journey-grid img.show { opacity:1; transform: translateY(0); }
+
+    /* Box glow naik-turun animation */
+    @keyframes glowUp {
+        0% { transform: translateY(0); box-shadow:0 0 15px rgba(255,150,200,0.3); }
+        50% { transform: translateY(-5px); box-shadow:0 0 25px rgba(255,128,180,0.8); }
+        100% { transform: translateY(0); box-shadow:0 0 15px rgba(255,150,200,0.3); }
+		
+    }
+</style>
+</head>
+<body>
+
+<!-- Navbar -->
+<div class="navbar">
+    <div>💗 Miftahul 💗</div>
+    <div>
+        <a href="index.html">Home</a>
+        <a href="about.html">About Me</a>
+        <a href="experience.html">Experience</a>
+        <a href="education.html">Education</a>
+        <a href="family.html">Family</a>
+        <a href="gallery.html">Gallery</a>
+    </div>
+</div>
+
+<!-- Header -->
+<div class="page-header">
+    <h1>My Education</h1>
+    <p>Check out my school journey 💗</p>
+</div>
+
+<main style="margin-top:50px;">
+
+    <!-- Primary School -->
+    <div class="edu-section">
+        <div class="slideshow" id="slide-primary">
+            <img src="primary1.jpg" class="slide-img active">
+            <img src="primary2.jpg" class="slide-img">
+            <img src="primary3.jpg" class="slide-img">
+            <button class="slide-btn left" onclick="prevSlide('slide-primary', true)">&#10094;</button>
+            <button class="slide-btn right" onclick="nextSlide('slide-primary', true)">&#10095;</button>
+        </div>
+        <div class="info-box">
+            <h3>Sekolah Kebangsaan Sungai Dua (2012-2017)</h3>
+            <ul>
+                <li>Won school Quran recitation competition</li>
+                <li>Participated in school sports day</li>
+                <li>atlet handball school representative</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Secondary School -->
+    <div class="edu-section">
+        <div class="slideshow" id="slide-secondary">
+            <img src="secondary1.jpg" class="slide-img active">
+            <img src="secondary2.jpeg" class="slide-img">
+            <img src="secondary3.jpeg" class="slide-img">
+            <button class="slide-btn left" onclick="prevSlide('slide-secondary', true)">&#10094;</button>
+            <button class="slide-btn right" onclick="nextSlide('slide-secondary', true)">&#10095;</button>
+        </div>
+        <div class="info-box">
+            <h3>Sekolah Menengah Kebangsaan Datuk Haji Ahmad Said - (2018-2022)</h3>
+            <ul>
+                <li>Awarded top student in Islamic education and Arabic language</li>
+                <li>Joined cooperative club</li>
+                <li>Participated in school exhibition</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- University -->
+    <div class="edu-section">
+        <div class="slideshow" id="slide-university">
+            <img src="university1.jpg" class="slide-img active">
+            <img src="university2.jpeg" class="slide-img">
+            <img src="university3.jpeg" class="slide-img">
+            <button class="slide-btn left" onclick="prevSlide('slide-university', true)">&#10094;</button>
+            <button class="slide-btn right" onclick="nextSlide('slide-university', true)">&#10095;</button>
+        </div>
+        <div class="info-box">
+            <h3>Universiti Teknologi Mara - (2023-2026)<h3>
+            <ul>
+                <li>Received Dean’s Award</li>
+                <li>Member of the authority Informa Club</li>
+                <li>Member of the authority clubfest event </li>
+            </ul>
+        </div>
+    </div>
+
+
+<style>
+/* Journey Box */
+.journey-box {
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 30px;
+    background: #fff0f8;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 0 30px rgba(255,182,193,0.3);
+}
+
+/* GRID – GAMBAR CENTER */
+.journey-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 30px;
+    justify-items: center;
+}
+
+/* GAMBAR */
+.journey-grid img {
+    width: 200px;
+    height: 220px;
+    object-fit: cover;
+    background: #fff;
+    padding: 10px;
+    border-radius: 10px;
+    border-bottom: 20px solid #fff;
+    box-shadow: 0 0 20px rgba(255,182,193,0.7);
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+}
+
+.journey-grid img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 35px rgba(255,182,193,0.9);
+}
+
+/* MODAL */
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 999;
+    background: rgba(0,0,0,0.8);
+    justify-content: center;
+    align-items: center;
+}
+
+/* MODAL POLAROID */
+.modal-polaroid {
+    position: relative;
+    background: #fff;
+    padding: 10px;
+    border-bottom: 30px solid #fff;
+    border-radius: 15px;
+    box-shadow: 0 0 40px rgba(255,182,193,0.9);
+    animation: popIn 0.3s ease-out;
+}
+
+.modal-content {
+    max-width: 500px;
+    max-height: 500px;
+    object-fit: cover;
+    border-radius: 10px;
+    display: block;
+    margin: 0 auto;
+}
+
+/* CLOSE BUTTON */
+.close-btn {
+    position: absolute;
+    top: 8px;
+    right: 12px;
+    font-size: 30px;
+    font-weight: bold;
+    color: #ff69b4;
+    cursor: pointer;
+}
+
+.close-btn:hover {
+    color: #ff1493;
+}
+
+/* ANIMATION */
+@keyframes popIn {
+    from {
+        transform: scale(0.6);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="journey-box">
+    <h2>My Journey Moments💗</h2>
+
+    <div class="journey-grid">
+        <img src="journey1.jpeg" class="clickable-img">
+        <img src="journey2.jpeg" class="clickable-img">
+        <img src="journey3.jpeg" class="clickable-img">
+        <img src="journey4.jpeg" class="clickable-img">
+        <img src="journey5.jpeg" class="clickable-img">
+        <img src="journey6.jpeg" class="clickable-img">
+        <img src="journey7.jpeg" class="clickable-img">
+        <img src="journey8.jpeg" class="clickable-img">
+        <img src="journey9.jpeg" class="clickable-img">
+    </div>
+</div>
+
+<div id="modal" class="modal">
+    <div class="modal-polaroid">
+        <span class="close-btn">&times;</span>
+        <img id="modal-img" class="modal-content">
+    </div>
+</div>
+
+<script>
+const modal = document.getElementById("modal");
+const modalImg = document.getElementById("modal-img");
+const images = document.querySelectorAll(".clickable-img");
+const closeBtn = document.querySelector(".close-btn");
+
+images.forEach(img => {
+    img.onclick = () => {
+        modal.style.display = "flex";
+        modalImg.src = img.src;
+    };
+});
+
+closeBtn.onclick = () => {
+    modal.style.display = "none";
+};
+
+modal.onclick = e => {
+    if (e.target === modal) {
+        modal.style.display = "none";
+    }
+};
+</script>
+
+
+
+<script>
+// Elements
+const modal = document.getElementById("modal");
+const modalImg = document.getElementById("modal-img");
+const images = document.querySelectorAll(".clickable-img");
+const closeBtn = document.querySelector(".close-btn");
+
+// Click gambar untuk buka modal
+images.forEach(img => {
+    img.onclick = function() {
+        modal.style.display = "flex";
+        modalImg.src = this.src;
+    }
+});
+
+// Click close button
+closeBtn.onclick = function() {
+    modal.style.display = "none";
+}
+
+// Click luar modal-polaroid untuk tutup
+modal.onclick = function(e) {
+    if (e.target === modal) {
+        modal.style.display = "none";
+    }
+}
+</script>
+
+
+  <div class="journey-box">
+    <h2>My Favorite Achievement💝</h2>
+    <div style="position:relative; width:200x; max-width:50%; margin:0 auto; text-align:center;">
+        <video width="105%" height="40%" controls style="border-radius:15px; box-shadow:0 0 15px rgba(255,150,200,0.3); display:block; margin:0 auto;">
+            <source src="videosfavorite-achievement.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+</div>
+
+
+</main>
+
+<<script>
+    // Animate box naik-turun
+    function animateBox(box){
+        if(!box) return;
+        box.style.animation = "";
+        void box.offsetWidth;
+        box.style.animation = "glowUp 0.4s";
+    }
+
+    // Simpan index setiap slideshow
+    const slideIndexes = {};
+
+    function showSlide(slideshowId, index){
+        const container = document.getElementById(slideshowId);
+        if(!container) return;
+
+        const slides = container.getElementsByClassName('slide-img');
+
+        if(index >= slides.length) index = 0;
+        if(index < 0) index = slides.length - 1;
+
+        slideIndexes[slideshowId] = index;
+
+        for(let i=0;i<slides.length;i++){
+            slides[i].classList.remove('active');
+        }
+        slides[index].classList.add('active');
+    }
+
+    function nextSlide(slideshowId){
+        showSlide(slideshowId,(slideIndexes[slideshowId]||0)+1);
+    }
+
+    function prevSlide(slideshowId){
+        showSlide(slideshowId,(slideIndexes[slideshowId]||0)-1);
+    }
+
+    // Init semua slideshow (start dari gambar pertama)
+    document.addEventListener("DOMContentLoaded",()=>{
+        document.querySelectorAll('.slideshow').forEach(slide=>{
+            slideIndexes[slide.id] = 0;
+            showSlide(slide.id,0);
+        });
+    });
+
+    // Fade-in journey images
+    window.addEventListener('DOMContentLoaded', () => {
+        const imgs = document.querySelectorAll('.journey-grid img');
+        imgs.forEach((img,i)=>{ 
+            setTimeout(()=>{ img.classList.add('show'); }, i*200); 
+        });
+    });
+</script>
+
+
+</body>
+</html>

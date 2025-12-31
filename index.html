@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title> 💗 Miftahul Iman 💗</title>
+	<!-- FONT AWESOME -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+    <style>
+        /* Soft glow */
+        .glow-box {
+            box-shadow: 0 0 12px rgba(255, 170, 200, 0.5);
+            transition: 0.3s ease;
+            opacity: 0;
+            font-family: "Times New Roman", Times, serif;
+        }
+        .glow-box:hover {
+            box-shadow: 0 0 22px rgba(255, 120, 180, 0.85);
+            transform: translateY(-5px);
+        }
+
+        .shake:hover {
+            animation: shakeAnim 0.4s ease;
+        }
+        @keyframes shakeAnim {
+            0% { transform: translateX(0); }
+            25% { transform: translateX(-3px); }
+            50% { transform: translateX(3px); }
+            75% { transform: translateX(-3px); }
+            100% { transform: translateX(0); }
+        }
+
+        .gradient-border {
+            border: 3px solid transparent;
+            background-image: linear-gradient(#fff, #fff),
+                              linear-gradient(45deg, #ffb6d5, #b2e5ff);
+            background-origin: border-box;
+            background-clip: content-box, border-box;
+        }
+
+        .glow-btn {
+            transition: 0.3s;
+            font-family: "Times New Roman", Times, serif;
+        }
+        .glow-btn:hover {
+            box-shadow: 0 0 15px rgba(255, 100, 150, 0.9);
+            transform: scale(1.05);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        body {
+            margin:0;
+            background: #ffcce7; /* solid pink */
+            font-family: "Times New Roman", Times, serif;
+        }
+
+        /* Navbar container */
+        .navbar {
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            padding:17.5px 80px;
+            background:#f556ca;
+            position:fixed;
+            top:0;
+            left:0;
+            width:93%;
+            box-shadow:0 2px 5px rgba(0,0,0,0.1);
+            z-index:1000;
+            font-family: 'Times New Roman', serif;
+        }
+
+        /* Logo */
+        .navbar .logo {
+            color:white;
+            font-weight:bold;
+            font-size:20px;
+        }
+
+        /* Links */
+        .navbar .nav-links a {
+            margin-left:15px;
+            text-decoration:none;
+            color:white;
+            font-weight:bold;
+            position:relative;
+            transition: 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        /* Hover & focus glow effect */
+        .navbar .nav-links a:hover,
+        .navbar .nav-links a:focus {
+            color:#fff;
+            text-shadow: 0 0 5px #fff, 0 0 10px #ff85d0, 0 0 20px #ff14b7;
+            box-shadow: 0 0 15px #ff14b7, 0 0 25px #ff85d0;
+            transform: translateY(-2px);
+        }
+
+        /* Optional: subtle pulsing animation on hover */
+        @keyframes neonPulse {
+            0%, 100% { text-shadow: 0 0 5px #fff, 0 0 10px #ff85d0, 0 0 20px #ff14b7; }
+            50% { text-shadow: 0 0 10px #fff, 0 0 20px #ff85d0, 0 0 30px #ff14b7; }
+        }
+        .navbar .nav-links a:hover {
+            animation: neonPulse 1.5s infinite alternate;
+        }
+
+        /* WRAPPER FLEX */
+        .contact-message-wrapper{
+            display:flex;
+            flex-wrap:wrap;
+            justify-content:space-between;
+            gap:20px;
+            width:80%;
+            margin:60px auto;
+        }
+
+        /* BOX STYLING */
+        .contact-box, .message-box{
+            flex:1;
+            min-width:280px;
+            padding:45px;
+            background:white;
+            border-radius:18px;
+            text-align:center;
+        }
+
+        /* HEADING */
+        .contact-box h3, .message-box h3{
+            color:#003d66;
+            margin-top:0;
+            margin-bottom:15px;
+        }
+
+        /* LINKS */
+        .contact-box a{
+            text-decoration:none;
+            color:#003d66;
+        }
+
+        /* SOCIAL ICON GRID */
+        .social-grid{
+            display:flex;
+            flex-wrap:wrap;
+            justify-content:center;
+            gap:40px;
+            margin-top:25px;
+        }
+
+        .social-icon{
+            display:flex;
+            flex-direction:column;
+            align-items:center;
+            text-decoration:none;
+            font-weight:bold;
+            transition:0.3s;
+        }
+
+        .social-icon i{
+            font-size:50px;
+            margin-bottom:8px;
+            transition:0.3s;
+        }
+
+        .social-icon span{
+            font-size:14px;
+        }
+
+        .social-icon.instagram i, .social-icon.instagram span{
+            color:#E1306C;
+        }
+        .social-icon.tiktok i, .social-icon.tiktok span{
+            color:#000000;
+        }
+        .social-icon.whatsapp i, .social-icon.whatsapp span{
+            color:#25D366;
+        }
+
+        /* hover */
+        .social-icon:hover i{
+            transform:scale(1.2);
+            color:#ff4081;
+        }
+
+        /* SEND MESSAGE FORM */
+        .message-box{
+            text-align:left;
+        }
+
+        .message-box label{
+            font-weight:bold;
+            display:block;
+            margin-top:10px;
+            margin-bottom:5px;
+        }
+
+        .message-box input, .message-box textarea{
+            width:100%;
+            padding:12px;
+            border-radius:8px;
+            border:1px solid #003d66;
+            font-size:14px;
+            margin-bottom:15px;
+        }
+
+        .message-box textarea{
+            height:140px;
+            resize:none;
+        }
+
+        .message-box button{
+            margin-top:10px;
+            padding:14px 28px;
+            background:#003d66;
+            color:white;
+            border:none;
+            border-radius:10px;
+            font-weight:bold;
+            font-size:15px;
+            cursor:pointer;
+        }
+
+        /* RESPONSIVE */
+        @media(max-width:768px){
+            .contact-message-wrapper{
+                flex-direction:column;
+            }
+
+            .contact-box, .message-box{
+                text-align:center;
+            }
+
+            .message-box{
+                text-align:left;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+    <div class="logo">💗 Miftahul 💗</div>
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About Me</a>
+        <a href="experience.html">Experience</a>
+        <a href="education.html">Education</a>
+        <a href="family.html">Family</a>
+        <a href="gallery.html">Gallery</a>
+    </div>
+</div>
+
+<!-- HEADER DENGAN BACKGROUND WARNA -->
+<div style="padding:70px 0 100px 0; text-align:center; background-color: #f4a5de;">
+    <header style="text-align:center; padding:40px 0 10px 0; margin-top:40px; font-family: 'Times New Roman', Times, serif;">
+        <h1 style="color:white; font-size:40px; margin:0;"> Welcome To My Portfolio </h1>
+        <p style="color:white; font-size:20px; margin-top:10px;"> Enjoy while getting to know about me 💗</p>
+    </header>
+</div>
+
+<!-- SECTION BAWAH -->
+<div style="background:#ffdcf4; padding:60px 0 40px 0;">
+    <!-- 2 BOXES -->
+    <div style="display:flex; justify-content:space-between; width:80%; margin:0 auto; gap:2%;">
+        <div class="glow-box gradient-border shake" style="flex:1; padding:50px; border-radius:15px; background:white; text-align:left;">
+            <h3 style="color:#003d66; margin-bottom:15px;">Get to Know About Me</h3>
+            <p>Hello everyone, welcome to my personal website</p><br>
+			<strong>My name is Miftahul Iman Binti Rohhizan</strong>, you guys can call me mift, I'm a student from UiTM Kedah who loves technology, records, creativity, and learning new digital skills.</p>
+        </div>
+
+        <div class="glow-box gradient-border shake" style="flex:1; padding:50px; border-radius:15px; background:white; text-align:left;">
+            <h3 style="color:#003d66; margin-bottom:15px;">Quick Info About Me</h3>
+            <p><strong>Age:</strong> 20</p>
+            <p><strong>From:</strong> Butterworth Penang</p>
+            <p><strong>Hobby:</strong> Editing , Watch movie & drama , Music</p>
+            <p><strong>Personality:</strong> Friendly, calm, creative 💗</p>
+        </div>
+    </div>
+
+    <!-- CONTACT + MESSAGE BOXES -->
+    <div class="contact-message-wrapper">
+        <!-- CONTACT ME -->
+      <div class="contact-box glow-box gradient-border shake">
+    <h3>Contact Me 📞</h3>
+    <p>📧 <a href="mailto:miftahulrohizan29@gmail.com" target="_blank">miftahulrohizan29@gmail.com</a></p>
+    <p>📞 <a href="tel:+60189481107">018-9481107</a></p>
+
+    <!-- SOCIAL ICONS GRID -->
+    <div class="social-grid">
+        <a href="https://www.instagram.com/justmiftt" target="_blank" class="social-icon instagram">
+            <i class="fab fa-instagram"></i>
+            <span>Instagram</span>
+        </a>
+        <a href="https://www.tiktok.com/@yokiesz" target="_blank" class="social-icon tiktok">
+            <i class="fab fa-tiktok"></i>
+            <span>TikTok</span>
+        </a>
+        <a href="https://wa.me/qr/WFS4VMMSI77RC1" target="_blank" class="social-icon whatsapp">
+            <i class="fab fa-whatsapp"></i>
+            <span>WhatsApp</span>
+        </a>
+    </div>
+</div>
+
+        <!-- SEND MESSAGE -->
+        <div class="message-box glow-box gradient-border shake">
+            <h3>Send Me a Message 💌</h3>
+            <label>Your Name:</label>
+            <input type="text" id="userName" placeholder="Enter your name">
+            <label>Your Email:</label>
+            <input type="email" id="userEmail" placeholder="Enter your email">
+            <label>Your Message:</label>
+            <textarea id="userMessage" placeholder="Type your message here..."></textarea>
+            <button id="sendMessageBtn">Send Message</button>
+        </div>
+    </div>
+</div>
+
+<script>
+document.getElementById("sendMessageBtn").addEventListener("click", function(){
+    const name = document.getElementById("userName").value.trim();
+    const email = document.getElementById("userEmail").value.trim();
+    const message = document.getElementById("userMessage").value.trim();
+
+    if(name === "" || email === "" || message === ""){
+        alert("Please fill all fields before sending.");
+        return;
+    }
+
+    alert(`Hi ${name}! Your message has been sent to email: miftahulrohizan29@gmail.com`);
+
+    document.getElementById("userName").value = "";
+    document.getElementById("userEmail").value = "";
+    document.getElementById("userMessage").value = "";
+});
+
+window.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.glow-box').forEach(el => {
+        el.style.animation = 'fadeIn 1s forwards';
+    });
+});
+</script>
+
+</body>
+</html>

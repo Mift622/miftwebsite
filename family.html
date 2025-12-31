@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>💗 Miftahul Iman 💗 - Family</title>
+<style>
+html, body {
+    margin:0;
+    padding:0;
+    font-family:"Times New Roman", Times, serif;
+    background:#ffcce7;
+    overflow-x:hidden;
+}
+
+/* NAVBAR */
+.navbar {
+    display:flex; justify-content:space-between; align-items:center;
+    padding:20px 80px; background:#f556ca; color:white;
+    position:fixed; top:0; left:0; width:93%;
+    box-shadow:0 2px 5px rgba(0,0,0,0.1);
+    z-index:1000;
+}
+.navbar a {
+    color:white; margin-left:15px; text-decoration:none;
+    font-weight:bold;
+    transition: 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover & focus glow effect */
+.navbar a:hover,
+.navbar a:focus {
+    color:#fff;
+    text-shadow: 0 0 5px #fff, 0 0 10px #ff85d0, 0 0 20px #ff14b7;
+}
+
+
+/* HEADER */
+.page-header {
+    padding:150px 0px 110px 0px;
+    text-align:center;
+    background:#f4a5de;
+    color:white;
+}
+.page-header h1 { font-size:40px; margin:0; }
+.page-header p { font-size:20px; margin-top:10px; }
+
+/* PROFILE ROW */
+.family-row {
+    max-width:1200px;
+    margin:50px auto;
+    display:flex;
+    justify-content:center;
+    gap:30px;
+    flex-wrap:wrap;
+    padding:0 20px;
+}
+
+.family-item {
+    text-align:center;
+    cursor:pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.family-item img {
+    width:150px; height:150px;
+    border-radius:20px;
+    object-fit:cover;
+    border:4px solid #fe86d8;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* HOVER EFFECT: naik + glow */
+.family-item:hover img {
+    transform: translateY(-15px);
+    box-shadow: 0 0 25px rgba(255,100,180,0.9);
+}
+
+/* DESCRIPTION BOXES */
+.desc-section {
+    max-width:1000px;
+    margin:20px auto 60px auto;
+    background:#fff0f8;
+    padding:30px;
+    border-radius:20px;
+    box-shadow:0 0 20px rgba(255,150,200,0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.desc-section:hover {
+    transform: translateY(-10px);
+    box-shadow:0 0 25px rgba(255,100,180,0.9);
+}
+
+.desc-section h2 {
+    color:#c2185b;
+    margin-top:0;
+    margin-bottom:10px;
+}
+.desc-section p {
+    font-size:17px;
+    color:#333;
+    line-height:1.6;
+}
+
+/* BIG FAMILY BOX (POLAROID STYLE) */
+.family-big-box-container {
+    max-width:1000px;
+    margin:40px auto 60px auto;
+    background:#fff0f8;
+    padding:30px;
+    border-radius:30px;
+    box-shadow:0 0 20px rgba(255,150,200,0.3);
+    text-align:center;
+}
+.family-big-box-container h2 {
+    color:#c2185b;
+    margin-bottom:30px;
+}
+
+/* GRID 6 IMAGES */
+.family-big-box {
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap:30px;
+}
+
+/* POLAROID IMAGE EFFECTS */
+.family-big-box img {
+    width:100%;
+    border-radius:15px;
+    object-fit:cover;
+    cursor:pointer;
+    box-shadow:0 0 8px rgba(255,150,200,0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: float 3s ease-in-out infinite;
+}
+.family-big-box img:hover {
+    transform: translateY(-10px);
+    box-shadow:0 0 25px rgba(255,100,180,0.9);
+}
+
+/* FLOAT ANIMATION */
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+    100% { transform: translateY(0); }
+}
+
+/* IMAGE CAPTION */
+.family-desc {
+    text-align:center;
+    margin-top:10px;
+    font-weight:bold;
+    color:#c2185b;
+}
+
+/* POPUP */
+#popupOverlay {
+    display:none;
+    position:fixed;
+    top:0; left:0;
+    width:100%; height:100%;
+    background:rgba(0,0,0,0.7);
+    justify-content:center;
+    align-items:center;
+    z-index:9999;
+}
+#popupBox {
+    background:white;
+    padding:20px;
+    border-radius:20px;
+    max-width:90%;
+    max-height:90%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+#popupImg {
+    width:400px;
+    height:400px;
+    object-fit:cover;
+    border-radius:15px;
+    box-shadow:0 0 20px rgba(255,255,255,0.5);
+}
+#closeBtn {
+    background:#ff4d6d;
+    color:white;
+    border:none;
+    padding:10px 20px;
+    border-radius:10px;
+    cursor:pointer;
+    margin-top:20px;
+    font-size:16px;
+}
+
+/* RESPONSIVE */
+@media screen and (max-width:900px) {
+    .family-big-box { grid-template-columns: repeat(2, 1fr); }
+    #popupImg { width:300px; height:300px; }
+}
+@media screen and (max-width:600px) {
+    .family-big-box { grid-template-columns: 1fr; }
+}
+/* Glow + naik turun untuk box besar sama macam desc-section */
+.glow-box {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow:0 0 20px rgba(255,150,200,0.3);
+}
+.glow-box:hover {
+    transform: translateY(-10px);
+    box-shadow:0 0 25px rgba(255,100,180,0.9);
+}
+
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+    <div>💗 Miftahul 💗</div>
+    <div>
+        <a href="index.html">Home</a>
+        <a href="about.html">About Me</a>
+        <a href="experience.html">Experience</a>
+        <a href="education.html">Education</a>
+        <a href="family.html">Family</a>
+        <a href="gallery.html">Gallery</a>
+    </div>
+</div>
+
+<!-- HEADER -->
+<div class="page-header">
+    <h1>My Family</h1>
+    <p>People who make my world complete 💗</p>
+</div>
+
+<!-- PROFILE ROW (5 GAMBAR) -->
+<div class="family-row">
+    <div class="family-item" onclick="scrollToDesc('father')">
+        <img src="father.jpeg">
+        <p>Father</p>
+    </div>
+    <div class="family-item" onclick="scrollToDesc('mother')">
+        <img src="mother.jpeg">
+        <p>Mother</p>
+    </div>
+    <div class="family-item" onclick="scrollToDesc('elder')">
+        <img src="elder.jpeg">
+        <p>Elder Sister</p>
+    </div>
+    <div class="family-item" onclick="scrollToDesc('younger')">
+        <img src="younger.jpeg">
+        <p>Younger Sister</p>
+    </div>
+    <div class="family-item" onclick="scrollToDesc('younger2')">
+        <img src="younger2.jpeg">
+        <p>Younger Sister 2</p>
+    </div>
+</div>
+
+
+<!-- DESCRIPTION BOXES -->
+<div class="desc-section" id="father">
+    <h2>Father</h2>
+    <p>💗 My father is my first love and hero in my life he always provide me anything that i want even he need to work hard and he always give me full of love. I love my dad a lot 💗</p>
+</div>
+<div class="desc-section" id="mother">
+    <h2>Mother</h2>
+    <p>💗 My mother is my favourite person in my life, she was my listener, guide, friend and my love forever. She always scold me whenever i make a small mistake, she always want the best life for me and she will do anything for me to be a succesful person. Ilove my mother a lot 💗.</p>
+</div>
+<div class="desc-section" id="elder">
+    <h2>Elder Sister</h2>
+    <p>💗 I the eldest daughter in my family, i usually will be bothering my younger sister until they annoying with me because i like to make them happy and love to talk with them. We sometimes don't get each other but we will get back togetehr and that's what the siblings things. I will help them no matter what because i want them to get a wonderful life. I love both my younger sister 💗</p>
+</div>
+<div class="desc-section" id="younger">
+    <h2>Younger Sister</h2>
+    <p>💗 My younger siste always need my guide and help in everything, she was too shy and scare to do alone. She is so stubborn and always be in her world, when she get bored she will bother me and ask to play mobile legend and watch her bored gaming streamer. She love to buy me ice cream whwnever she go back from her college. I love my younger sister a lot 💗</p>
+</div>
+<div class="desc-section" id="younger2">
+    <h2>Younger Sister 2</h2>
+    <p>💗 My last younger sister always clingy with me more, she usually will ask me to buy her skincare because she obsessed to become white and pretty. She always like to bullied me and we share the same interest and we like to collect photocards, sticker of our idol together. I love my last younger sister a lot 💗</p>
+</div>
+<script>
+function scrollToDesc(id) {
+    const element = document.getElementById(id);
+    const offset = -100; // untuk navbar tetap, adjust ikut tinggi navbar
+    const bodyRect = document.body.getBoundingClientRect().top;
+    const elementRect = element.getBoundingClientRect().top;
+    const elementPosition = elementRect - bodyRect;
+    const offsetPosition = elementPosition + offset;
+
+    window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth"
+    });
+}
+</script>
+
+
+<!-- BIG FAMILY POLAROID BOX -->
+<div class="family-big-box-container glow-box">
+    <h2>Picture of My Family</h2>
+    <div class="family-big-box">
+
+        <div>
+            <img src="fatherluv.jpeg" onclick="openPopup(this.src)">
+            <div class="family-desc"> My parents💗</div>
+        </div>
+
+        <div>
+            <img src="motherluv.jpeg" onclick="openPopup(this.src)">
+            <div class="family-desc"> My younger sister💗</div>
+        </div>
+
+        <div>
+            <img src="elderluv.jpeg" onclick="openPopup(this.src)">
+            <div class="family-desc">My baby💗</div>
+        </div>
+
+        <div>
+            <img src="youngerluv.jpeg" onclick="openPopup(this.src)">
+            <div class="family-desc">siblings💗</div>
+        </div>
+
+        <div>
+            <img src="younger2luv.jpeg" onclick="openPopup(this.src)">
+            <div class="family-desc">My family💗</div>
+        </div>
+
+        <div>
+            <img src="onehappyfamily.jpeg" onclick="openPopup(this.src)">
+            <div class="family-desc">My sweetheart💗</div>
+        </div>
+
+    </div>
+</div>
+
+
+<!-- POPUP -->
+<div id="popupOverlay">
+    <div id="popupBox">
+        <img id="popupImg">
+        <button id="closeBtn" onclick="closePopup()">Close</button>
+    </div>
+</div>
+
+<script>
+function openPopup(src){
+    document.getElementById("popupImg").src = src;
+    document.getElementById("popupOverlay").style.display = "flex";
+}
+function closePopup(){
+    document.getElementById("popupOverlay").style.display = "none";
+}
+</script>
+
+</body>
+</html>

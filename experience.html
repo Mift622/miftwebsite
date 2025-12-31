@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>💗 Miftahul Iman 💗</title>
+<style>
+<style>
+/* Info box styling */
+.info-box {
+    background: #fff0f5; /* light background */
+    padding: 25px;
+    border-radius: 15px;
+    margin-top: 20px;
+    color: maroon; /* semua teks warna maroon */
+}
+
+.info-box h2 {
+    margin-top: 0;
+    color: maroon; /* heading warna maroon */
+}
+
+.info-box h4 {
+    color: maroon; /* subheading */
+    margin-bottom: 15px;
+}
+
+.info-box p {
+    color: maroon; /* paragraph */
+}
+
+.info-box ul li {
+    color: maroon; /* list items */
+}
+
+    html, body {
+        margin:0;
+        padding:0;
+        height:100%;
+        display:flex;
+        flex-direction:column;
+        font-family:'Times New Roman', Times, serif;
+        background:#ffcce7;
+    }
+    main { flex:1; }
+
+   /* NAVBAR */
+.navbar {
+    display:flex; justify-content:space-between; align-items:center;
+    padding:20px 80px; background:#f556ca; color:white;
+    position:fixed; top:0; left:0; width:93%;
+    box-shadow:0 2px 5px rgba(0,0,0,0.1);
+    z-index:1000;
+}
+.navbar a {
+    color:white; margin-left:15px; text-decoration:none;
+    font-weight:bold;
+    transition: 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover & focus glow effect */
+.navbar a:hover,
+.navbar a:focus {
+    color:#fff;
+    text-shadow: 0 0 5px #fff, 0 0 10px #ff85d0, 0 0 20px #ff14b7;
+}
+
+    .page-header {
+        padding:150px 0 110px 0;
+        text-align:center;
+        background-color:#f4a5de;
+        color:white;
+    }
+    .page-header h1 { font-size:40px; margin:0; }
+    .page-header p { font-size:20px; margin-top:10px; }
+
+    .section-container {
+        width:85%;
+        margin:60px auto;
+        display:flex;
+        gap:40px;
+        flex-wrap:wrap;
+        align-items:center;
+    }
+
+    .slide-container {
+        flex:1;
+        min-width:200px;
+        max-width:250px;
+        position:relative;
+        text-align:center;
+    }
+    .slide-container img {
+        width:100%;
+        height:160px;
+        border-radius:15px;
+        object-fit:cover;
+        box-shadow:0 0 15px rgba(255,150,200,0.3);
+    }
+    .slide-btn {
+        position:absolute;
+        top:50%;
+        transform:translateY(-50%);
+        background:#ff80ab;
+        border:none;
+        color:white;
+        border-radius:50%;
+        padding:8px 12px;
+        cursor:pointer;
+        z-index:10;
+    }
+    .slide-btn.left { left:0; transform:translate(-50%, -50%); }
+    .slide-btn.right { right:0; transform:translate(50%, -50%); }
+
+    
+   /* Info box */
+.info-box {
+    flex:1;
+    min-width:300px;
+    background:#fff0f8; /* satu warna pink */
+    padding:30px;
+    border-radius:20px;
+    box-shadow:0 0 12px rgba(255,150,200,0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position:relative;
+}
+
+/* Animation naik + glow bila arrow ditekan */
+.info-box.active {
+    animation: glowUp 0.4s forwards;
+}
+
+@keyframes glowUp {
+    0% { transform: translateY(0); box-shadow:0 0 12px rgba(255,150,200,0.5); }
+    50% { transform: translateY(-15px); box-shadow:0 0 25px rgba(255,128,180,0.8); }
+    100% { transform: translateY(0); box-shadow:0 0 12px rgba(255,150,200,0.5); }
+}
+
+/* Hover glow ringan */
+.info-box:hover {
+    transform: translateY(-5px);
+    box-shadow:0 0 20px rgba(255,128,180,0.6);
+}
+
+
+    /* Hover glow */
+    .info-box:hover {
+        box-shadow:0 0 25px rgba(255,128,180,0.5);
+        transform: translateY(-5px);
+    }
+    
+    
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+    <div> 💗 Miftahul 💗</div>
+    <div>
+        <a href="index.html">Home</a>
+        <a href="about.html">About Me</a>
+        <a href="experience.html">Experience</a>
+        <a href="education.html">Education</a>
+        <a href="family.html">Family</a>
+        <a href="gallery.html">Gallery</a>
+    </div>
+</div>
+
+<main>
+    <div class="page-header">
+        <h1>My Experience</h1>
+        <p>Get to know more about my experience 💗</p>
+    </div>
+
+    <!-- EXPERIENCE -->
+    <div style="background:#ffdcf4; padding:40px 0;">
+
+        <!-- UNIMAIL -->
+        <div class="section-container">
+            <div class="slide-container">
+                <img id="unimailSlide" src="unimail1.jpeg">
+                <button class="slide-btn left" onclick="prevUnimail()">&#10094;</button>
+                <button class="slide-btn right" onclick="nextUnimail()">&#10095;</button>
+            </div>
+
+            <div class="info-box" id="unimailBox">
+                <h2>UniMail</h2>
+                <h4>10 October 2024 - 30 December 2025</h4>
+                <p>I worked at UniMail while studying in UiTM Kedah, i want to gain new experience in working a parcel services for students. I also using an excel to create a masterlist to list the data about a students who collecting their parcels.</p>
+                <ul>
+                    <li>Software Development</li>
+                    <li>Team Collaboration</li>
+                    <li>Communication Skills</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- PEJABAT DAERAH -->
+        <div class="section-container">
+            <div class="slide-container">
+                <img id="pdSlide" src="pd1.jpeg">
+                <button class="slide-btn left" onclick="prevPd()">&#10094;</button>
+                <button class="slide-btn right" onclick="nextPd()">&#10095;</button>
+            </div>
+
+            <div class="info-box" id="pdBox">
+                <h2>Pejabat Daerah & Tanah</h2>
+                <h4>28 July 2025 - 19 August 2025</h4>
+                <p>Handled administrative and records tasks.</p>
+                <ul>
+                    <li>Administration</li>
+                    <li>Documentation</li>
+                    <li>Public Service</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- CLUBFEST -->
+        <div class="section-container">
+            <div class="slide-container">
+                <img id="clubSlide" src="clubfest1.jpeg">
+                <button class="slide-btn left" onclick="prevClub()">&#10094;</button>
+                <button class="slide-btn right" onclick="nextClub()">&#10095;</button>
+            </div>
+
+            <div class="info-box" id="clubBox">
+                <h2>ClubFest: Into the Universe</h2>
+                <h4>13 October 2025 - 15 October 2025 </h4>
+                <p>Participated in student club promoting.</p>
+                <ul>
+                    <li>Technical</li>
+                    <li>Teamwork</li>
+                    <li>System</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- MERBOK -->
+        <div class="section-container">
+            <div class="slide-container">
+                <img id="merbokSlide" src="merbok1.jpg">
+                <button class="slide-btn left" onclick="prevMerbok()">&#10094;</button>
+                <button class="slide-btn right" onclick="nextMerbok()">&#10095;</button>
+            </div>
+
+            <div class="info-box" id="merbokBox">
+                <h2>Merbok School Cleaning Program</h2>
+                <h4> 20 May 2024</h4>
+                <p>Community service and environmental awareness.</p>
+                <ul>
+                    <li>School Cleaning</li>
+                    <li>Awareness Campaign</li>
+                    <li>Teamwork</li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</main>
+
+<script>
+function animateBox(id){
+    const box=document.getElementById(id);
+    box.classList.add("up");
+    setTimeout(()=>box.classList.remove("up"),300);
+}
+
+/* UNIMAIL */
+const unimailImgs=["unimail1.jpeg","unimail2.jpeg","unimail3.jpeg"];
+let u=0;
+function nextUnimail(){ u=(u+1)%unimailImgs.length; unimailSlide.src=unimailImgs[u]; animateBox("unimailBox"); }
+function prevUnimail(){ u=(u-1+unimailImgs.length)%unimailImgs.length; unimailSlide.src=unimailImgs[u]; animateBox("unimailBox"); }
+
+/* PD */
+const pdImgs=["pd1.jpeg","pd2.jpeg","pd3.jpeg"];
+let p=0;
+function nextPd(){ p=(p+1)%pdImgs.length; pdSlide.src=pdImgs[p]; animateBox("pdBox"); }
+function prevPd(){ p=(p-1+pdImgs.length)%pdImgs.length; pdSlide.src=pdImgs[p]; animateBox("pdBox"); }
+
+/* CLUB */
+const clubImgs=["clubfest1.jpeg","clubfest2.jpeg","clubfest3.jpeg"];
+let c=0;
+function nextClub(){ c=(c+1)%clubImgs.length; clubSlide.src=clubImgs[c]; animateBox("clubBox"); }
+function prevClub(){ c=(c-1+clubImgs.length)%clubImgs.length; clubSlide.src=clubImgs[c]; animateBox("clubBox"); }
+
+/* MERBOK */
+const merbokImgs=["merbok1.jpg","merbok2.jpg","merbok3.jpg"];
+let m=0;
+function nextMerbok(){ m=(m+1)%merbokImgs.length; merbokSlide.src=merbokImgs[m]; animateBox("merbokBox"); }
+function prevMerbok(){ m=(m-1+merbokImgs.length)%merbokImgs.length; merbokSlide.src=merbokImgs[m]; animateBox("merbokBox"); }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

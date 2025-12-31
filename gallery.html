@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>💗 Miftahul Iman 💗 - Gallery</title>
+<style>
+html, body {
+    margin:0;
+    padding:0;
+    font-family:"Times New Roman", Times, serif;
+    background:#ffcce7;
+    overflow-x:hidden;
+}
+
+/* NAVBAR */
+.navbar {
+    display:flex; justify-content:space-between; align-items:center;
+    padding:20px 80px; background:#f556ca; color:white;
+    position:fixed; top:0; left:0; width:93%;
+    box-shadow:0 2px 5px rgba(0,0,0,0.1);
+    z-index:1000;
+}
+.navbar a {
+    color:white; margin-left:15px; text-decoration:none;
+    font-weight:bold;
+    transition: 0.3s ease, box-shadow 0.3s ease;
+}
+/* Hover & focus glow effect */
+.navbar a:hover,
+.navbar a:focus {
+    color:#fff;
+    text-shadow: 0 0 5px #fff, 0 0 10px #ff85d0, 0 0 20px #ff14b7;
+}
+
+/* HEADER */
+.page-header {
+    padding:150px 0px 110px 0px;
+    text-align:center;
+    background:#f4a5de;
+    color:white;
+}
+.page-header h1 { font-size:40px; margin:0; }
+.page-header p { font-size:20px; margin-top:10px; }
+
+/* CATEGORY BUTTONS */
+.category-buttons {
+    text-align:center;
+    margin:30px 0;
+}
+.category-buttons button {
+    background:#ff14b7;
+    color:white;
+    border:none;
+    padding:10px 20px;
+    margin:5px;
+    font-size:16px;
+    border-radius:10px;
+    cursor:pointer;
+    transition: 0.3s ease, box-shadow 0.3s ease;
+}
+.category-buttons button:hover {
+    box-shadow: 0 0 15px #ff14b7, 0 0 25px #ff85d0;
+    transform: scale(1.05);
+}
+
+/* BIG BOX FOR GALLERY */
+.gallery-box {
+    max-width:1200px;
+    margin:30px auto 60px auto;
+    background:#fff0f8;
+    padding:30px;
+    border-radius:20px;
+    box-shadow:0 0 20px rgba(255,150,200,0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.gallery-box:hover {
+    transform: translateY(-10px);
+    box-shadow:0 0 25px rgba(255,100,180,0.9);
+}
+
+/* GRID 6 IMAGES */
+.gallery-grid {
+    display:grid;
+    grid-template-columns: repeat(3,1fr);
+    gap:20px;
+    margin-top:20px;
+}
+
+/* POLAROID STYLE */
+.polaroid {
+    background: #fff0f8;
+    padding: 10px;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(255,150,200,0.5);
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: float 3s ease-in-out infinite;
+}
+.polaroid img {
+    width: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+}
+.polaroid:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 25px rgba(255,100,180,0.9);
+}
+.caption {
+    margin-top:8px;
+    font-weight:bold;
+    color:#c2185b;
+}
+
+/* FLOAT ANIMATION */
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+    100% { transform: translateY(0); }
+}
+
+/* POPUP */
+#popupOverlay {
+    display:none;
+    position:fixed;
+    top:0; left:0;
+    width:100%; height:100%;
+    background:rgba(0,0,0,0.7);
+    justify-content:center;
+    align-items:center;
+    z-index:9999;
+}
+#popupBox {
+    background:white;
+    padding:20px;
+    border-radius:20px;
+    max-width:90%;
+    max-height:90%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+#popupImg {
+    width:400px;
+    height:400px;
+    object-fit:cover;
+    border-radius:15px;
+    box-shadow:0 0 20px rgba(255,255,255,0.5);
+}
+#closeBtn {
+    background:#ff4d6d;
+    color:white;
+    border:none;
+    padding:10px 20px;
+    border-radius:10px;
+    cursor:pointer;
+    margin-top:20px;
+    font-size:16px;
+}
+
+/* RESPONSIVE */
+@media screen and (max-width:900px) {
+    .gallery-grid { grid-template-columns: repeat(2,1fr); }
+    #popupImg { width:300px; height:300px; }
+}
+@media screen and (max-width:600px) {
+    .gallery-grid { grid-template-columns:1fr; }
+    #popupImg { width:250px; height:250px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+    <div>💗 Miftahul 💗</div>
+    <div>
+        <a href="index.html">Home</a>
+        <a href="about.html">About Me</a>
+        <a href="experience.html">Experience</a>
+        <a href="education.html">Education</a>
+        <a href="family.html">Family</a>
+        <a href="gallery.html">Gallery</a>
+    </div>
+</div>
+
+<!-- HEADER -->
+<div class="page-header">
+    <h1>Gallery</h1>
+    <p>Click a category to view photos 💗</p>
+</div>
+
+<!-- CATEGORY BUTTONS -->
+<div class="category-buttons">
+    <button onclick="showCategory('food')">Food</button>
+    <button onclick="showCategory('myself')">Myself</button>
+    <button onclick="showCategory('friends')">Friends</button>
+    <button onclick="showCategory('random')">Random</button>
+    <button onclick="showCategory('view')">View</button>
+    <button onclick="showCategory('idol')">Idol</button>
+</div>
+
+<!-- BIG BOX GALLERY -->
+<div class="gallery-box">
+    <!-- FOOD -->
+    <div class="gallery-grid" id="food" style="display:none">
+        <div class="polaroid" onclick="openPopup('food1.jpeg')"><img src="food1.jpeg"><div class="caption">mochi🍡</div></div>
+        <div class="polaroid" onclick="openPopup('food2.jpeg')"><img src="food2.jpeg"><div class="caption">tomyam🥘</div></div>
+        <div class="polaroid" onclick="openPopup('food3.jpeg')"><img src="food3.jpeg"><div class="caption">laksa🍜</div></div>
+        <div class="polaroid" onclick="openPopup('food4.jpeg')"><img src="food4.jpeg"><div class="caption">ice cream🍦</div></div>
+        <div class="polaroid" onclick="openPopup('food5.jpeg')"><img src="food5.jpeg"><div class="caption">kirana's cake🍰</div></div>
+        <div class="polaroid" onclick="openPopup('food6.jpeg')"><img src="food6.jpeg"><div class="caption">cabe-cabe cafe🍽️</div></div>
+    </div>
+    <!-- MYSELF -->
+    <div class="gallery-grid" id="myself" style="display:none">
+        <div class="polaroid" onclick="openPopup('myself1.jpeg')"><img src="myself1.jpeg"><div class="caption">🌸</div></div>
+        <div class="polaroid" onclick="openPopup('myself2.jpeg')"><img src="myself2.jpeg"><div class="caption">🩷</div></div>
+        <div class="polaroid" onclick="openPopup('myself3.jpeg')"><img src="myself3.jpeg"><div class="caption">🌷</div></div>
+        <div class="polaroid" onclick="openPopup('myself4.jpeg')"><img src="myself4.jpeg"><div class="caption">💟</div></div>
+        <div class="polaroid" onclick="openPopup('myself5.jpeg')"><img src="myself5.jpeg"><div class="caption">💳</div></div>
+        <div class="polaroid" onclick="openPopup('myself6.jpeg')"><img src="myself6.jpeg"><div class="caption">🎀</div></div>
+    </div>
+    <!-- FRIENDS -->
+    <div class="gallery-grid" id="friends" style="display:none">
+        <div class="polaroid" onclick="openPopup('friends1.jpeg')"><img src="friends1.jpeg"><div class="caption">my partner in crime ❤️</div></div>
+        <div class="polaroid" onclick="openPopup('friends2.jpeg')"><img src="friends2.jpeg"><div class="caption">bestie 💗</div></div>
+        <div class="polaroid" onclick="openPopup('friends3.jpeg')"><img src="friends3.jpeg"><div class="caption">my listener 🥹❤️‍🩹</div></div>
+        <div class="polaroid" onclick="openPopup('friends4.jpeg')"><img src="friends4.jpeg"><div class="caption">my roomies 🩷🌷</div></div>
+        <div class="polaroid" onclick="openPopup('friends5.jpeg')"><img src="friends5.jpeg"><div class="caption">my girl 🧸💓</div></div>
+        <div class="polaroid" onclick="openPopup('friends6.jpeg')"><img src="friends6.jpeg"><div class="caption">friends 💛</div></div>
+    </div>
+    <!-- RANDOM -->
+    <div class="gallery-grid" id="random" style="display:none">
+        <div class="polaroid" onclick="openPopup('randoms1.jpeg')"><img src="randoms1.jpeg"><div class="caption">cat join gmeet😺</div></div>
+        <div class="polaroid" onclick="openPopup('randoms2.jpeg')"><img src="randoms2.jpeg"><div class="caption">starlympic🏸</div></div>
+        <div class="polaroid" onclick="openPopup('randoms3.jpeg')"><img src="randoms3.jpeg"><div class="caption">night discussion🥸</div></div>
+        <div class="polaroid" onclick="openPopup('randoms4.jpeg')"><img src="randoms4.jpeg"><div class="caption">fingerpaint🖍️</div></div>
+        <div class="polaroid" onclick="openPopup('randoms5.jpeg')"><img src="randoms5.jpeg"><div class="caption">class photo📸</div></div>
+        <div class="polaroid" onclick="openPopup('randoms6.jpeg')"><img src="randoms6.jpeg"><div class="caption">prented to be professional mapping📍🗺️ </div></div>
+    </div
+    <!-- VIEW -->
+    <div class="gallery-grid" id="view" style="display:none">
+        <div class="polaroid" onclick="openPopup('view1.jpeg')"><img src="view1.jpeg"><div class="caption">🌼</div></div>
+        <div class="polaroid" onclick="openPopup('view2.jpeg')"><img src="view2.jpeg"><div class="caption">🌞</div></div>
+        <div class="polaroid" onclick="openPopup('view3.jpeg')"><img src="view3.jpeg"><div class="caption">🌤️</div></div>
+        <div class="polaroid" onclick="openPopup('view4.jpeg')"><img src="view4.jpeg"><div class="caption">💫</div></div>
+        <div class="polaroid" onclick="openPopup('view5.jpeg')"><img src="view5.jpeg"><div class="caption">🌈</div></div>
+        <div class="polaroid" onclick="openPopup('view6.jpeg')"><img src="view6.jpeg"><div class="caption">🪐</div></div>
+    </div>
+    <!-- IDOL -->
+    <div class="gallery-grid" id="idol" style="display:none">
+        <div class="polaroid" onclick="openPopup('idol1.jpg')"><img src="idol1.jpg"><div class="caption">lando🏎️🏁</div></div>
+        <div class="polaroid" onclick="openPopup('idol2.jpeg')"><img src="idol2.jpeg"><div class="caption">nani😼💓</div></div>
+        <div class="polaroid" onclick="openPopup('idol3.jpeg')"><img src="idol3.jpeg"><div class="caption">sky🌥️🩵</div></div>
+        <div class="polaroid" onclick="openPopup('idol4.jpeg')"><img src="idol4.jpeg"><div class="caption">nicholas🖤</div></div>
+        <div class="polaroid" onclick="openPopup('idol5.jpeg')"><img src="idol5.jpeg"><div class="caption">dew🧸💓</div></div>
+        <div class="polaroid" onclick="openPopup('idol6.jpeg')"><img src="idol6.jpeg"><div class="caption">william💝</div></div>
+    </div>
+</div>
+
+<!-- POPUP -->
+<div id="popupOverlay">
+    <div id="popupBox">
+        <img id="popupImg" src="">
+        <button id="closeBtn" onclick="closePopup()">Close</button>
+    </div>
+</div>
+
+<script>
+function showCategory(cat){
+    const categories = ['food','myself','friends','random','view','idol'];
+    categories.forEach(c=>{
+        document.getElementById(c).style.display = (c===cat)?'grid':'none';
+    });
+}
+function openPopup(src){
+    document.getElementById('popupImg').src = src;
+    document.getElementById('popupOverlay').style.display='flex';
+}
+function closePopup(){
+    document.getElementById('popupOverlay').style.display='none';
+}
+
+// Optional: show default category
+showCategory('food');
+</script>
+
+</body>
+</html>
